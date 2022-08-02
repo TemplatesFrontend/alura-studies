@@ -1,10 +1,13 @@
 import React from "react";
 
-class Button extends React.Component {
+class Button extends React.Component <{ children:string;}>{
     render() {
+
         return (
-            <button>
-                Botão Components
+            <button style={{ 
+                backgroundColor:'blue'
+             }}>
+                { this.props.children  }
             </button>
         )
     }
