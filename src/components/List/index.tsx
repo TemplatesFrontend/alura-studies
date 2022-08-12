@@ -7,7 +7,12 @@ import Item from "./Item";
 //   tempo: string
 // }
 
-function Lista({ tarefas }:{ tarefas: ITarefa[]}) {
+interface Props {
+  tarefas: ITarefa[],
+  selecionaTarefa: (tarefaSelecionada: ITarefa) => void
+}
+
+function Lista({ tarefas, selecionaTarefa }: Props) {
   // let tarefas = [
   //   { id: 12, tarefa: "React", tempo: "02:54:24" },
   //   { tarefa: "PHP", tempo: "01:24:14" },
@@ -35,12 +40,14 @@ function Lista({ tarefas }:{ tarefas: ITarefa[]}) {
         <h2> Estudos do dia </h2>
 
       <ul>
-        {tarefas.map((item, index) => (
+        {tarefas.map(item => (
           <Item 
-            key={index}
-            tarefa={item.tarefa}
-            tempo={item.tempo}
-            selecionado={item.selecionado} completado={item.completado} id={item.id}          
+            selecionaTarefa = {selecionaTarefa}
+            key={item.id}
+            {...item}
+            // tarefa={item.tarefa}
+            // tempo={item.tempo}
+            // selecionado={item.selecionado} completado={item.completado} id={item.id}          
             />
         ))}
       </ul>
