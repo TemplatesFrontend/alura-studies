@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import ITarefa  from "../../types/tarefa";
 import Item from "./Item";
 
@@ -37,10 +37,11 @@ function Lista({ tarefas }:{ tarefas: ITarefa[]}) {
       <ul>
         {tarefas.map((item, index) => (
           <Item 
-            key={ index }
-            tarefa={ item.tarefa }
-            tempo={ item.tempo }
-          />
+            key={index}
+            tarefa={item.tarefa}
+            tempo={item.tempo}
+            selecionado={item.selecionado} completado={item.completado} id={item.id}          
+            />
         ))}
       </ul>
 

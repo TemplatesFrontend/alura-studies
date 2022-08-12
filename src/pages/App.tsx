@@ -1,26 +1,19 @@
-import React from 'react';
-import Button from '../components/Button';
+import React, { useState } from 'react';
+// import Button from '../components/Button';
 import Crono from '../components/Cronometro';
 import Form from '../components/Form';
 import Lista from '../components/List';
+import ITarefa from '../types/tarefa';
 
 
 function App() {
 
-  const [tarefas, setTarefas] = useState([{
-    tarefa: 'React',
-    tempo: '02:00:00'
-    }, {
-        tarefa: 'JavaScript',
-        tempo: '01:00:00'
-    }, { 
-        tarefa: 'Typescript',
-        tempo: '03:00:00'
-    }]);
+  
+  const [tarefas, setTarefas] = useState<ITarefa[]>([]);
 
   return (
     <div className="App">
-      <Form setTarefas={setTarefas} />
+      <Form setTarefas={setTarefas}/>
       <Lista tarefas={tarefas}/>
       <Crono />
     </div>
@@ -28,7 +21,7 @@ function App() {
 }
 
 export default App;
-function useState(arg0: { tarefa: string; tempo: string; }[]): [any, any] {
-  throw new Error('Function not implemented.');
-}
+// function useState(arg0: { tarefa: string; tempo: string; }[]): [any, any] {
+//   throw new Error('Function not implemented.');
+// }
 

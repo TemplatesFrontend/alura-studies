@@ -1,6 +1,7 @@
 import React from 'react';
-import ITarefa from '../../types/tarefa';
+import   ITarefa  from '../../types/tarefa';
 import Button from '../Button';
+import { v4 as uid } from 'uuid'; 
 
 class Form extends React.Component <{
     setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>
@@ -13,8 +14,23 @@ class Form extends React.Component <{
     
     adicionarTarefa(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        this.props.setTarefas(tarefasAntigas => [...tarefasAntigas, {... this.state }]);
+        this.props.setTarefas(tarefasAntigas => 
+            [
+                ...tarefasAntigas, 
+                {
+                    ...this.state,
+                    selecionado: false,
+                    completado: false,
+                    id: uid()
+                }
+            ]
+        );
         // console.log('state: ', this.state);
+        //reset state
+        this.setState({
+            tarefa: "",
+            tempo: "00:00"
+        })
     }
 
     render() {
