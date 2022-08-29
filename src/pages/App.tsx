@@ -27,7 +27,7 @@ function App() {
         tarefas={tarefas}
         selecionaTarefa={selecionaTarefa}       
       />
-      <Crono />
+      <Crono selecionado={selecionado} />
     </div>
   );
 }

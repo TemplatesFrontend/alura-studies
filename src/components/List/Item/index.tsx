@@ -5,15 +5,8 @@ interface Props extends ITarefa {
 }
 
 function Item (
-    { 
-        tarefa, 
-        tempo, 
-        selecionado, 
-        completado, 
-        id, 
-        selecionaTarefa
-    }: Props) {
-    console.log('item atual: ', {tarefa, tempo, selecionado, completado, id});
+    { tarefa, tempo, selecionado, completado, id, selecionaTarefa }: Props) {
+    // console.log('item atual: ', {tarefa, tempo, selecionado, completado, id});
     return (
         <li 
             onClick={() => selecionaTarefa(
