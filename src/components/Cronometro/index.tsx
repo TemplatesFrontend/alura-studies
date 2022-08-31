@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { tempoParaSegundo } from "../../common/utils/time";
 import ITarefa from "../../types/tarefa";
 import Button from "../Button";
@@ -11,9 +11,14 @@ interface Props {
 function Crono({selecionado}: Props) {
     // console.log('Conversao', tempoParaSegundo('01:01:01'))
     const [tempo, setTempo] = useState<number>();
-    if(selecionado?.tempo) {
-        setTempo(tempoParaSegundo(selecionado.tempo))
-    }
+
+    useEffect(() => {
+        if (selecionado?.tempo) 
+        {
+            setTempo(tempoParaSegundo(selecionado.tempo)); 
+        }
+    }, [selecionado]);
+    
 
     return (
         <div>
