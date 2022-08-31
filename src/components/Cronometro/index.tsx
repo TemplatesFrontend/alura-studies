@@ -23,9 +23,9 @@ function Crono({selecionado}: Props) {
     return (
         <div>
             <p>Escolha um card e inicie o cronomêtro</p>
-            Tempo: {tempo}
+            {/* Tempo: {tempo} Debug */}
             <div>
-                <Relogio />
+                <Relogio tempo={tempo}/>
         </div>
                 <Button>
                     Começar
