@@ -18,6 +18,17 @@ function Crono({selecionado}: Props) {
             setTempo(tempoParaSegundo(selecionado.tempo)); 
         }
     }, [selecionado]);
+
+    function regress(cont: number=0) {
+        setTimeout(() => {
+            
+            if(cont > 0) {
+                setTempo(cont -1);
+                return regress(cont - 1);
+            }
+
+        }, 1000);
+    }
     
 
     return (
@@ -27,7 +38,7 @@ function Crono({selecionado}: Props) {
             <div>
                 <Relogio tempo={tempo}/>
         </div>
-                <Button>
+                <Button onClick={() => regress(tempo) }>
                     Começar
                 </Button>
             </div>
