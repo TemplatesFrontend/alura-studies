@@ -21,6 +21,7 @@ function Item (
         >
             <h3>{tarefa}</h3>
             <span>{tempo}</span>
+            { completado && <span>ok</span>}
         </li>
     )
 }

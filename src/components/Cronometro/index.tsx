@@ -5,10 +5,11 @@ import Button from "../Button";
 import Relogio from "./Relogio";
 
 interface Props {
-    selecionado: ITarefa | undefined
+    selecionado: ITarefa | undefined,
+    finalizarTarefa: () => void
 }
 
-function Crono({selecionado}: Props) {
+function Crono({selecionado, finalizarTarefa}: Props) {
     // console.log('Conversao', tempoParaSegundo('01:01:01'))
     const [tempo, setTempo] = useState<number>();
 
@@ -26,6 +27,7 @@ function Crono({selecionado}: Props) {
                 setTempo(cont -1);
                 return regress(cont - 1);
             }
+            finalizarTarefa();
 
         }, 1000);
     }
