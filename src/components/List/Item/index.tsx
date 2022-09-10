@@ -21,7 +21,7 @@ function Item (
         >
             <h3>{tarefa}</h3>
             <span>{tempo}</span>
-            { completado && <span>ok</span>}
+            { completado && <span> &#10004; Tarefa Concluída</span>}
         </li>
     )
 }

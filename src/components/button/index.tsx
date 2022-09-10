@@ -1,6 +1,25 @@
 import React from "react";
 
-class Button extends React.Component <{ 
+/* Refatoração*/ 
+interface Props {
+    type?:"button" | "submit" | "reset" | undefined,
+    onClick?: () => void,
+    children?: React.ReactNode
+}
+
+function Button ({ onClick, type, children}:Props) {
+    return (
+        <button 
+            onClick={onClick} 
+            type={type} style={{ 
+            backgroundColor:'blue'
+         }}>
+            { children  }
+        </button>
+    )
+}
+
+/*class Button1 extends React.Component <{ 
         children:string;
         type?:"button" | "submit" | "reset" | undefined,
         onClick?: () => void; 
@@ -15,6 +34,6 @@ class Button extends React.Component <{
             </button>
         )
     }
-}
+}*/
 
 export default Button;
